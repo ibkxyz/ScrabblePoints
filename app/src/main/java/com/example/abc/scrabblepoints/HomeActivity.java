@@ -1,8 +1,15 @@
 package com.example.abc.scrabblepoints;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -62,7 +71,8 @@ public class HomeActivity extends AppCompatActivity {
         share_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(HomeActivity.this,R.string.share_toast, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HomeActivity.this,R.string.share_toast, Toast.LENGTH_SHORT).show();
+                takeScreenShot();
             }
         });
 
@@ -248,6 +258,65 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void takeScreenShot() {
+//        Date now = new Date();
+//        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
+
+        try {
+            //path to save to
+            String pPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Screenshots";
+
+            //capture
+            View view = getWindow().getDecorView().getRootView();
+            view.setDrawingCacheEnabled(true);
+            Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+            view.setDrawingCacheEnabled(false);
+
+            File imageFile = new File(pPath);
+            if (!imageFile.exists())
+                imageFile.mkdirs();
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(imageFile);
+                int quality = 100;
+                bitmap.compress(Bitmap.CompressFormat.JPEG, quality, fileOutputStream);
+                fileOutputStream.flush();
+                fileOutputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            MediaScannerConnection.scanFile(this,
+                    new String[]{imageFile.toString()}, null,
+                    new MediaScannerConnection.OnScanCompletedListener() {
+
+                        @Override
+                        public void onScanCompleted(String s, Uri uri) {
+                            Log.i("ExternalStorage", "Scanned " + s + ":");
+                            Log.i("ExternalStorage", "-> uri=" + uri);
+                        }
+                    });
+            shareImage(imageFile);
+
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+
+        }
+    }
+
+    private void shareImage(File imageFile) {
+        Uri uri = Uri.fromFile(imageFile);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("image/*");
+
+        try {
+            startActivity(Intent.createChooser(intent, "Share Scoreboard"));
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "No App Available", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
