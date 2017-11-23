@@ -1,0 +1,257 @@
+<resources>
+    <string name="app_name">Scrabble Points</string>
+
+    <string name="title_activity_main">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Points Calculator</string>
+    <string name="slide_1_desc">Calculate scrabble points faster for players during a tournament.</string>
+
+    <string name="slide_2_title">Add Multiple Players</string>
+    <string name="slide_2_desc">Create players and start adding points!</string>
+
+
+    <string name="title_activity_nav_drawer">NavDrawerActivity</string>
+
+    <string name="nav_title">Scrabble Points Calculator</string>
+    <string name="email">ibkxyz@gmail.com</string>
+    <string name="contact_mail">Scrabble Points Feedback</string>
+    <string name="alert_title">About</string>
+    <string name="alert_message">Scrabble Points \n Version 1.0 \n Contact Developer for more info</string>
+    <string name="okay_text">Okay</string>
+    <string name="back_key">Press back again to quit \n Careful, your score will not be saved</string>
+    <string name="back_exit">Press back again to exit Scrabble Points</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_close">Close</string>
+    <string name="action_reset">Reset</string>
+
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+
+    <string name="enter_player_nick">Enter Players\' Nickname</string>
+    <string name="hint_no_player_1">No Player 1</string>
+    <string name="hint_no_player_2">No Player 2</string>
+    <string name="hint_no_player_3">No Player 3</string>
+    <string name="hint_no_player_4"> No Player 4</string>
+    <string name="hint_1_player">Player 1</string>
+    <string name="hint_2_player">Player 2</string>
+    <string name="hint_3_player">Player 3</string>
+    <string name="hint_4_player">Player 4</string>
+    <string name="game_player_start">START</string>
+
+    <string name="game_player_end">END GAME</string>
+    <string name="toast_end">Press Back Button Twice To End Game</string>
+
+    <string name="share_toast">Feature not available in this version</string>
+
+    <string name="add_button">+</string>
+
+
+    <!-- Navigation Drawer menu labels -->
+    <string name="title_nav_home">Home</string>
+    <string name="title_nav_list">Tile List</string>
+    <string name="title_nav_share_score">Share Score Sheet</string>
+    <string name="title_nav_scrabble_rules">Rules</string>
+    <string name="title_nav_settings">Settings</string>
+
+    <string name="title_nav_header_other">Other</string>
+
+    <string name="title_nav_about">About</string>
+    <string name="title_nav_report_problem">Contact Developer</string>
+
+    <string name="text_menu_close">Scrabble Points has just been closed</string>
+
+    <string name="text_toast_home_fragment">Names of - at least - player 1 and 2 cannot be blank</string>
+
+    <string name="text_header_home">Scoreboard</string>
+    <string name="text_title_tile_list">You will find scrabble tiles, number of pieces and their corresponding point values here.</string>
+
+    <string name="text_title_rules">Official Scrabble rules</string>
+    <string name="extracted">- extracted from scrabble.hasbro.com and scrabblepages.com</string>
+
+    <string name="inde">Index</string>
+
+    <string name="scrabble_board">Get familiar with the scrabble board</string>
+    <string name="board">A standard Scrabble board will consist of cells that are located in a large square grid. The board offers 15 cells high and 15 cells wide. The tiles used on the game will fit in each cell on the board.</string>
+
+    <string name="scrabble_tiles">Know your tiles</string>
+    <string name="tiles">There are 100 tiles that are used in the game and 98 of them will contain letters and point values. There are 2 blank tiles that can be used as wild tiles to take the place of any letter. When a blank is played, it will remain in the game as the letter it substituted for. Different letters in the game will have various point values and this will depend on how rare the letter is and how difficult it may be to lay that letter. Blank tiles will have no point values. Check \"Tile List\" for tiles values.</string>
+
+    <string name="start_game">Starting the game</string>
+    <string name="game_start_para1">Without looking at any of the tiles in the bag, players will take one tile. The player that has the letter that is closest to “A” will begin the game. A blank tile will win the start of the game. The tiles are them replaced to the bag and used in the remainder of the game.</string>
+    <string name="game_start_para2">Every player will start their turn by drawing seven tiles from the Scrabble bag. There are three options during any turn. The player can place a word, they can exchange tiles for new tiles or they can choose to pass. In most cases, players will try to place a word as the other two options will result in no score.</string>
+    <string name="game_start_para3">When a player chooses to exchange tiles, they can choose to exchange one or all of the tiles they currently hold. After tiles are exchanged, the turn is over and players will have to wait until their next turn to place a word on the board.</string>
+    <string name="game_start_para4">Players can choose to pass at any time. They will forfeit that turn and hope to be able to play the next time. If any player passes two times in a row, the game will end and the one with the highest score will win.</string>
+
+    <string name="first_play">First player scores double</string>
+    <string name="first_player">When the game begins, the first player will place their word on the star spin in the centre of the board. The star is a double square and will offer a double word score. All players following will build their words off of this word, extending the game to other squares on the board. \nPlay continues in a clockwise direction around the Scrabble board.</string>
+
+
+    <string name="replacing">Replacing scrabble tiles</string>
+    <string name="replace_tiles">Once tiles are played on the board, players will draw new tiles to replace those. Players will always have seven tiles during the game. Drawing tiles is always done without looking into the bag so that the letters are always unknown.</string>
+    
+    <string name="Bingo">50points Bingo Bonus</string>
+    <string name="bingo_bonus">Exciting rewards can come when players use all seven tiles to create a word on the board. When this happens, players will receive a 50 point bonus, in addition to the value of the word. If the game is near the end and players are not holding seven tiles, they do not get the bonus for using all of their tiles. This is only collected for seven letter words placed.</string>
+
+    <string name="extra">Extra Point Values</string>
+    <string name="extra_description">When looking at the board, players will see that some squares offer multipliers. Should a tile be placed on these squares, the value of the tile will be multiplied by 2x or 3x. Some squares will also multiply the total value of the word and not just the single point value of one tile.</string>
+    <string name="extra_double_letter">Double Letter Scores - The light blue cells in the board are isolated and when these are used, they will double the value of the tile placed on that square.</string>
+    <string name="extra_triple_letter">Triple Letter Score - The dark blue cell in the board will be worth triple the amount, so any tile placed here will earn more points.</string>
+    <string name="extra_double_word">Double Word Score - When a cell is light red in colour, it is a double word cell and these run diagonally on the board, towards the four corners. When a word is placed on these squares, the entire value of the word will be doubled.</string>
+    <string name="extra_triple_word">Triple Word Score - The dark red square is where the high points can be earned as this will triple the word score. Placing any word on these squares will boos points drastically. These are found on all four sides of the board and are equidistant from the corners.</string>
+    <string name="extra_end">When using the extra point squares on the board, they can only be used one time. If a player places a word here, it cannot be used as a multiplier by placing another word on the same square.</string>
+    
+    <string name="acceptable_words">Acceptable Scrabble Words</string>
+    <string name="_words">Any word that is found in a standard English dictionary can be used in the game of Scrabble; although, there are also Official Scrabble Dictionaries that can be referenced for more word options. \n These Official Scrabble Dictionaries take more preference than the English Dictionary.</string>
+    <string name="_words2">There are some words that are not allowed to be played and these include suffixes, prefixes and abbreviations. Any word that requires the use of a hyphen or apostrophe cannot be played in the game. Any word that required the use of a capital letter is not allowed.</string>
+    <string name="_words3">When playing an English version of the game, foreign words are not allowed to be placed on the board. However, if the foreign word does appear in a standard English or Official Scrabble dictionaries, it is allowed. The reason for this is due to the fact that the word is spoken enough and is considered part of the English language.</string>
+
+    <string name="scoring">Tallying Scrabble Scores</string>
+    <string name="_scoring1">When the game ends, each player will count all points that are remaining on their tiles that have not been played. This amount will be deducted from the final score.</string>
+    <string name="_scoring2">An added bonus is awarded to the player that ended the game and has no remaining tiles. The tile values of all remaining players will be added to the score of the player who is out of tiles to produce the final score for the game.</string>
+    <string name="_scoring3">The Scrabble player with the highest score after all final scores are tallied wins.</string>
+
+    <string name="ending_game">Ending the game</string>
+    <string name="game_end">Once all tiles are gone from the bag and a single player has placed all of their tiles, the game will end and the player with the highest score wins.</string>
+
+
+
+
+
+
+
+
+    <string name="tile_blank">Blank</string>
+    <string name="tile_blank_pieces">2</string>
+    <string name="tile_blank_point">0</string>
+
+    <string name="tile_a">A</string>
+    <string name="tile_a_pieces">9</string>
+    <string name="tile_a_point">1</string>
+
+    <string name="tile_b">B</string>
+    <string name="tile_b_pieces">2</string>
+    <string name="tile_b_point">3</string>
+
+    <string name="tile_c">C</string>
+    <string name="tile_c_pieces">2</string>
+    <string name="tile_c_point">3</string>
+
+    <string name="tile_d">D</string>
+    <string name="tile_d_pieces">4</string>
+    <string name="tile_d_point">2</string>
+
+    <string name="tile_e">E</string>
+    <string name="tile_e_pieces">12</string>
+    <string name="tile_e_point">1</string>
+
+    <string name="tile_f">F</string>
+    <string name="tile_f_pieces">2</string>
+    <string name="tile_f_point">4</string>
+
+    <string name="tile_g">G</string>
+    <string name="tile_g_pieces">3</string>
+    <string name="tile_g_point">2</string>
+
+    <string name="tile_h">H</string>
+    <string name="tile_h_pieces">2</string>
+    <string name="tile_h_point">4</string>
+
+    <string name="tile_i">I</string>
+    <string name="tile_i_pieces">9</string>
+    <string name="tile_i_point">1</string>
+
+    <string name="tile_j">J</string>
+    <string name="tile_j_pieces">1</string>
+    <string name="tile_j_point">8</string>
+
+    <string name="tile_k">K</string>
+    <string name="tile_k_pieces">1</string>
+    <string name="tile_k_point">5</string>
+
+    <string name="tile_l">L</string>
+    <string name="tile_l_pieces">4</string>
+    <string name="tile_l_point">1</string>
+
+    <string name="tile_m">M</string>
+    <string name="tile_m_pieces">2</string>
+    <string name="tile_m_point">3</string>
+
+    <string name="tile_n">N</string>
+    <string name="tile_n_pieces">6</string>
+    <string name="tile_n_point">1</string>
+
+    <string name="tile_o">O</string>
+    <string name="tile_o_pieces">8</string>
+    <string name="tile_o_point">1</string>
+
+    <string name="tile_p">P</string>
+    <string name="tile_p_pieces">2</string>
+    <string name="tile_p_point">3</string>
+
+    <string name="tile_q">Q</string>
+    <string name="tile_q_pieces">1</string>
+    <string name="tile_q_point">10</string>
+
+    <string name="tile_r">R</string>
+    <string name="tile_r_pieces">6</string>
+    <string name="tile_r_point">1</string>
+
+    <string name="tile_s">S</string>
+    <string name="tile_s_pieces">4</string>
+    <string name="tile_s_point">1</string>
+
+    <string name="tile_t">T</string>
+    <string name="tile_t_pieces">6</string>
+    <string name="tile_t_point">1</string>
+
+    <string name="tile_u">U</string>
+    <string name="tile_u_pieces">4</string>
+    <string name="tile_u_point">1</string>
+
+    <string name="tile_v">V</string>
+    <string name="tile_v_pieces">2</string>
+    <string name="tile_v_point">4</string>
+
+    <string name="tile_w">W</string>
+    <string name="tile_w_pieces">2</string>
+    <string name="tile_w_point">4</string>
+
+    <string name="tile_x">X</string>
+    <string name="tile_x_pieces">1</string>
+    <string name="tile_x_point">8</string>
+
+    <string name="tile_y">Y</string>
+    <string name="tile_y_pieces">2</string>
+    <string name="tile_y_point">4</string>
+
+    <string name="tile_z">Z</string>
+    <string name="tile_z_pieces">1</string>
+    <string name="tile_z_point">10</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Home</item>
+        <item>Tile List</item>
+        <item>Rules</item>
+        <item>Share Score Sheet</item>
+        <item>Settings</item>
+        <item>About</item>
+        <item>Report a problem</item>
+
+    </string-array>
+
+
+</resources>
