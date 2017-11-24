@@ -1,16 +1,19 @@
 package com.example.abc.scrabblepoints;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -21,6 +24,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by abc on 13/11/2017.
@@ -41,8 +45,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        Toast.makeText(getApplicationContext(), R.string.toast_end, Toast.LENGTH_SHORT).show();
 
         TextView player1txt = findViewById(R.id.txt_player1);
         TextView player2txt = findViewById(R.id.txt_player2);
@@ -66,19 +68,30 @@ public class HomeActivity extends AppCompatActivity {
         View view_2 = findViewById(R.id.view2);
         View view_3 = findViewById(R.id.view3);
 
+        ImageButton close_button = findViewById(R.id.button_close);
+        close_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               closeOption();
+
+            }
+        });
+
+
+
+
 
         ImageButton share_button = findViewById(R.id.button_share);
         share_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(HomeActivity.this,R.string.share_toast, Toast.LENGTH_SHORT).show();
-                takeScreenShot();
+                Toast.makeText(HomeActivity.this,R.string.share_toast, Toast.LENGTH_SHORT).show();
+//               takeScreenShot();
             }
         });
 
 
         if (player3txt.getText().equals("")) {
-//            player_3button.setEnabled(false);
             view_2.setVisibility(View.INVISIBLE);
             linearLayout3.setVisibility(LinearLayout.INVISIBLE);
         }
@@ -86,7 +99,6 @@ public class HomeActivity extends AppCompatActivity {
         if (player4txt.getText().equals(""))
 
         {
-//            player_4button.setEnabled(false);
             view_3.setVisibility(View.INVISIBLE);
             linearLayout4.setVisibility(LinearLayout.INVISIBLE);
         }
@@ -99,6 +111,12 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+
+                try {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(scoreplayer1.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
+                } catch (Exception e) {
+                }
 
                 try {
                     int ix = Integer.parseInt(player_1input.getText().toString().trim());
@@ -140,6 +158,12 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+
+                try {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(scoreplayer2.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
+                } catch (Exception e) {
+                }
 
                 try {
 
@@ -184,6 +208,12 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 try {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(scoreplayer3.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
+                } catch (Exception e) {
+                }
+
+                try {
 
                     int ix = Integer.parseInt(player_3input.getText().toString().trim());
 
@@ -226,6 +256,11 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                try {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(scoreplayer4.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
+                } catch (Exception e) {
+                }
 
                 try {
                     int ix = Integer.parseInt(player_4input.getText().toString().trim());
@@ -261,12 +296,12 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void takeScreenShot() {
-//        Date now = new Date();
-//        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
+        Date now = new Date();
+        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
 
         try {
             //path to save to
-            String pPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Screenshots";
+            String pPath = "/" + now + ".jpg";
 
             //capture
             View view = getWindow().getDecorView().getRootView();
@@ -274,11 +309,13 @@ public class HomeActivity extends AppCompatActivity {
             Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
             view.setDrawingCacheEnabled(false);
 
-            File imageFile = new File(pPath);
-            if (!imageFile.exists())
-                imageFile.mkdirs();
+            File imageFile = new File(Environment.getExternalStorageDirectory().toString() + pPath);
+//            if (!imageFile.exists())
+//                imageFile.mkdirs();
+
+            FileOutputStream fileOutputStream;
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream(imageFile);
+                fileOutputStream = new FileOutputStream(imageFile);
                 int quality = 100;
                 bitmap.compress(Bitmap.CompressFormat.JPEG, quality, fileOutputStream);
                 fileOutputStream.flush();
@@ -286,7 +323,6 @@ public class HomeActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
 
             MediaScannerConnection.scanFile(this,
                     new String[]{imageFile.toString()}, null,
@@ -298,6 +334,7 @@ public class HomeActivity extends AppCompatActivity {
                             Log.i("ExternalStorage", "-> uri=" + uri);
                         }
                     });
+
             shareImage(imageFile);
 
         } catch (Throwable throwable) {
@@ -319,21 +356,46 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     public void onBackPressed() {
         if (doubleBackPressToGoBack) {
             super.onBackPressed();
             return;
         }
-
         this.doubleBackPressToGoBack = true;
-        Toast.makeText(this, R.string.back_key, Toast.LENGTH_LONG).show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                doubleBackPressToGoBack = false;
-            }
-        }, 2000);
+        closeOption();
+//        Toast.makeText(this, R.string.back_key, Toast.LENGTH_LONG).show();
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                doubleBackPressToGoBack = false;
+//            }
+//        }, 2000);
     }
 
+    private AlertDialog.Builder closeOption(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(HomeActivity.this);
+        dialog.setCancelable(false);
+        dialog.setTitle("End Game");
+        dialog.setIcon(R.drawable.ic_close);
+        dialog.setMessage("Are you sure you want to end game? Careful, your score will not be saved");
+        dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                HomeActivity.super.onBackPressed();
+
+            }
+        })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+        final AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+
+        return dialog;
+    }
 }

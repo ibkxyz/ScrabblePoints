@@ -36,8 +36,16 @@
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimaryDark"
-                android:src="@drawable/ic_share"
-                />
+                android:src="@drawable/ic_share" />
+
+            <ImageButton
+                android:id="@+id/button_close"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="#f90303"
+                android:src="@drawable/ic_close" />
+
+
         </LinearLayout>
 
     </LinearLayout>
